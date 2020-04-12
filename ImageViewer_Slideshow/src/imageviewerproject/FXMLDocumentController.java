@@ -102,6 +102,10 @@ public class FXMLDocumentController implements Initializable
         executor.shutdownNow();
     }
     
+    /*
+        the executor.shutdown-method will interrupt the threa in the slideshow class.
+    
+    */
     private void displayImage()
     {
         if (!images.isEmpty() || filenames.isEmpty())
