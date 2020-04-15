@@ -25,7 +25,7 @@ public class FXMLDocumentController implements Initializable
     private final List<Image> images = new ArrayList<>();
     private final List<String> filenames = new ArrayList<>();
     private int currentImageIndex = 0;
-    private ExecutorService executor;
+    private ExecutorService executor; // create ExecutorService to manage threads
     
 
     @FXML
@@ -94,7 +94,7 @@ public class FXMLDocumentController implements Initializable
     {
         Runnable slideshow = new Slideshow(imageView, lblFileName, images, filenames);
         executor = Executors.newSingleThreadExecutor();
-        executor.submit(slideshow);
+        executor.submit(slideshow); // Start the task (start either this or the runnable below)
     }
 
     private void handleBtnStopSlideshowAction(ActionEvent event)
@@ -102,10 +102,11 @@ public class FXMLDocumentController implements Initializable
         executor.shutdownNow();
     }
     
-    /*
-        the executor.shutdown-method will interrupt the threa in the slideshow class.
     
-    */
+    //the executor.shutdown-method will interrupt the threa in the slideshow class. 
+    // Shut down the thread pool when task or runnable stops
+    
+    
     private void displayImage()
     {
         if (!images.isEmpty() || filenames.isEmpty())

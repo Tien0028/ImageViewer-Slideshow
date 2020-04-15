@@ -45,7 +45,7 @@ public class Slideshow implements Runnable {
         if (!images.isEmpty()){
             try{
                 while(true){
-                   Platform.runLater( () ->{
+                   Platform.runLater( () ->{ // Run code to update the GUI on the JavaFX application thread
                        imageView.setImage(images.get(index));
                     lblFileName.setText(filenames.get(index));
                    });
