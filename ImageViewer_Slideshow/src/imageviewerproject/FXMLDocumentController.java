@@ -26,7 +26,14 @@ public class FXMLDocumentController implements Initializable
     private final List<String> filenames = new ArrayList<>();
     private int currentImageIndex = 0;
     private ExecutorService executor; // create ExecutorService to manage threads
+
+
     
+    /*
+    
+    Multithreading is to run several threads of the same program at the same time.
+    A thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.
+    */
 
     @FXML
     Parent root;
@@ -100,12 +107,12 @@ public class FXMLDocumentController implements Initializable
     private void handleBtnStopSlideshowAction(ActionEvent event)
     {
         executor.shutdownNow();
+        //the executor.shutdown-method will interrupt the thread in the slideshow class. 
+        // Shut down the thread pool when task or runnable stops
     }
     
     
-    //the executor.shutdown-method will interrupt the threa in the slideshow class. 
-    // Shut down the thread pool when task or runnable stops
-    
+
     
     private void displayImage()
     {
