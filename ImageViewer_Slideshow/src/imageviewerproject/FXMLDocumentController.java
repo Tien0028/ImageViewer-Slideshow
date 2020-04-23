@@ -101,7 +101,7 @@ public class FXMLDocumentController implements Initializable
     {
         Runnable slideshow = new Slideshow(imageView, lblFileName, images, filenames);
         executor = Executors.newSingleThreadExecutor();
-        executor.submit(slideshow); // Start the task (start either this or the runnable below)
+        executor.submit(slideshow); // Start the task
     }
 
     private void handleBtnStopSlideshowAction(ActionEvent event)
